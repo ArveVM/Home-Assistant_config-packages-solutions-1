@@ -1,0 +1,8 @@
+# AVM: this is the main configuration of my HA-instance
+# all functionality lies within built-in, add-ons or integrations
+# .yaml-based integrations are configured in their respective
+# .yaml-files in the /integration-folder
+
+homeassistant:
+#  packages: !include_dir_named integrations
+  packages: !include_dir_named avm_yaml/packages
