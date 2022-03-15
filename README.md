@@ -142,6 +142,14 @@ Add-ons:
 - Terminal & SSH
 - Zigbee2mqtt
 
+Blueprints:
+- Aquara qube: https://raw.githubusercontent.com/golles/Home-Assistant-Blueprints/main/zigbee2mqtt_aqara_magic_cube.yaml
+
+Frontend:
+- Custom button card: https://github.com/custom-cards/button-card
+- Custom apexcharts-card: https://github.com/RomRider/apexcharts-card
+- Custom charger-card: https://github.com/tmjo/charger-card
+
 
 ### config history:
 
@@ -181,6 +189,7 @@ Add-ons:
   - wifi on Deco M5
   - created simple garage-door automation with Shelly1's  mostly like Rob's at https://www.youtube.com/watch?v=WEZUxXNiERQ&t=41s - but reversed the reed-switch to confirm when door is closed 
   - Some lights added, conbeeII and z2M/mosquitto and wifi (nedis)
+  - Aquara-sensors (temp, button, cube)
   - happy go puppuy,, install EVERYTHING, HA IS AWSOME    (insert soundtrack; https://www.youtube.com/watch?v=StTqXEQ2l-Y !!!!!)
   - trying to connect Nedis-bulbs, but failed, then localTuya - but failed horribly :(
   - got an 'awakening' looking at the current number on IoT-devices on my LAN, and the likely addition of further wifi-bulbs and all other possibilities that will be added created a side-project;
