@@ -77,8 +77,8 @@ automation:
     description: ''
     trigger:
     - platform: numeric_state
-#      entity_id: sensor.apexplug_power
-      entity_id: input_number.washer_power_testhelper
+      entity_id: sensor.apexplug_power
+#      entity_id: input_number.washer_power_testhelper
       below: 10
       for: "00:01:00"
     condition:
