@@ -1,0 +1,6 @@
+# input/tips frå mrRR:
+
+sensor:
+  - name: "kitchen_heater_south_running"
+    unique_id: "kitchen_heater_south_running"
+    state: "{{ states('sensor.kitchen_heater_south_power') | float(0) > 7 }}"

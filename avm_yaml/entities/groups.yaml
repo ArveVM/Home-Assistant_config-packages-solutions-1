@@ -1,0 +1,22 @@
+#group:
+#  group_test_lights:
+#    name: Test lights off when away
+#    entities:
+#      - light.light_kitchen_sink
+#      - light.light_hallwayup_ceiling_1
+#      - light.light_kitchen_table
+
+
+
+group_test_lights:
+  name: Test lights off when away
+  entities:
+    - light.light_kitchen_sink
+    - light.light_hallwayup_ceiling_1
+    - light.light_kitchen_table
+    
+group_test_lights_kitchen:
+  name: Test lights off when away
+  entities:
+    - light.light_kitchen_sink
+    - light.light_kitchen_table

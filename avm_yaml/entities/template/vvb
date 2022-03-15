@@ -1,0 +1,11 @@
+sensor:
+  - name: "VVB Power"
+    unique_id: vvb_power
+    device_class: power
+    unit_of_measurement: 'W'
+    state: >
+      {% if is_state('binary_sensor.vvb_input', 'on') %}
+        2987 
+      {% else %} 
+        0
+      {% endif %}

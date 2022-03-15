@@ -1,0 +1,28 @@
+#   AVM; splitter energy-meters i filer for kvar av entitetar som har dei
+#        men samlar fleire utility-meters i samme fil
+#
+#        cycle string-> How often to reset the counter. 
+#                       Valid values are: 
+#                           quarter-hourly, hourly, daily, weekly, monthly, bimonthly, quarterly and yearly
+#
+#dishwasher_energy_daily: 
+#  source: sensor.dishwasher_energy
+#  name: dishwasher_energy_daily 
+#  cycle: daily 
+
+#dishwasher_energy_daily:
+#  source: sensor.dishwasher_energy
+#  name: dishwasher_energy_daily
+#  cycle: daily
+  
+dishwasher_energy_monthly: 
+  source: sensor.dishwasher_energy
+  name: dishwasher_energy_monthly
+#  friendly_name: Dishwasher Energy Monthly
+  cycle: monthly
+  
+dishwasher_energy_daily: 
+  source: sensor.dishwasher_energy
+  name: dishwasher_energy_daily
+#  friendly_name: Dishwasher Energy Monthly
+  cycle: daily

@@ -1,0 +1,22 @@
+#   AVM; splitter energy-meters i filer for kvar av entitetar som har dei
+#        men samlar fleire utility-meters i samme fil
+#
+#        cycle string-> How often to reset the counter. 
+#                       Valid values are: 
+#                           quarter-hourly, hourly, daily, weekly, monthly, bimonthly, quarterly and yearly
+
+
+evahan_energy_hourly: 
+  source: sensor.evahan_energy_inst
+  name: evahan_energy_hourly
+  cycle: hourly
+
+evahan_energy_daily: 
+  source: sensor.evahan_energy_inst
+  name: evahan_energy_daily
+  cycle: daily
+  
+evahan_energy_monthly: 
+  source: sensor.evahan_energy_inst
+  name: evahan_energy_monthly
+  cycle: monthly

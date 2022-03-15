@@ -17,7 +17,7 @@ transporter.py
 /www/
 /zigbee2mqtt/
 /avm_yaml/packages/pending_int
-/avm_yaml/entities
+#/avm_yaml/entities
 /blueprints/
 
 # ignore any of these files no matter where they are using double *

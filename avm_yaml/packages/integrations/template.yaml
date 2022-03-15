@@ -1,0 +1,19 @@
+###############################################################################
+#   @author       :   ArveVM 
+#   @date         :   15.march.2022
+#   @integration  :   Template
+#   @description  :   enable powerful functionality!
+#   @basic concept: 
+#      enable template functionality, 
+#      create a folder for .yaml-files with temmplate-sensors
+#
+#   Guess I will prefer to create templates within  each solution - but you never know
+#
+#   Tip and shitload of guiding from mrRR, part of the v2 of my splitting documentation
+# 
+#   further info: https://www.home-assistant.io/integrations/template/
+#
+###############################################################################
+
+
+template: !include_dir_list ../../entities/template

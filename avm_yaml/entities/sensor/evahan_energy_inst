@@ -1,0 +1,13 @@
+#eksempel fra mrRR;
+#platform: integration
+#source: sensor.power_air_conditioner
+#name: energy_varmepumpe
+#unit_prefix: k
+
+
+platform: integration
+name: evaHAN_energy_inst
+source: sensor.evahan_power
+method: left
+unit_prefix: k
+round: 2

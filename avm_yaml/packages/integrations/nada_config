@@ -1,0 +1,46 @@
+###############################################################################
+#   @author       :   ArveVM 
+#   @date         :   15.march.2022
+#   @integration  :   Integration that can work without config  ;)
+#   @description  :   'identify' a set of integrations
+#   @basic concept: 
+#       During configuration splitt and cleanup - it came apparent that  
+#       some integration actually had no requirement for configuration, 
+#       so I just happened to clarify that by adding them in this 'config'
+#     
+#      I guess the logic is that they are activated whenever used  
+#      and you can reconfigure if needed ?    
+#      So this file is not adding any functionality - it is only describing
+#      functionality HA enables magically ;)
+#      Anyway - it's not broke, don't poke!
+#
+#      PS; list of active integrations are present in GUI
+#          configurations/settings/info/integrations    (scroll down)
+#
+###############################################################################
+
+
+*** Integrations automagically working without any configuration:
+
+
+recorder            - database-entries of state-changes?
+                    - https://www.home-assistant.io/integrations/recorder
+                    - not a part of default_config, but enabled automagically
+                    - gues it's just such an crutial part of HA that 
+                    - it is not possible to disable
+                    - can be reconfigured by adding recorder.yaml
+
+
+integration         - Riemann sum integral
+                    - integration propably builtin/activated by first sensor using it?
+                    - used as platform in a sensor 
+
+
+systemmonitor       - sensor platform allows you to monitor disk usage, 
+                    - memory usage, CPU usage, and running processes.
+
+
+uptime              - The uptime sensor stores the timestamp (date and time) 
+                      when Home Assistant was last started.
+                    - https://www.home-assistant.io/integrations/uptime/
+

@@ -1,0 +1,35 @@
+
+
+
+
+#   AVM; tips fra https://community.home-assistant.io/t/wildcard-entities-card/72969/8
+
+#### LOW BATTERY SENSOR ###############################################################
+#### Source: https://community.home-assistant.io/t/wildcard-entities-card/72969/3
+#######################################################################################
+#platform: template
+sensors:
+  name: low_battery_summary
+  value_template: >
+    {%-for state in states.sensor if(state.attributes.device_class=="battery" and state.state | int <= 25)-%}
+      {%-if loop.last-%}
+        {%-if loop.index > 0-%}
+          {%-for state in states.sensor if(state.attributes.device_class=="battery" and state.state | int <= 25)-%}
+            {{state.name}}{%-if not loop.last -%}{%-if(loop.index+1==loop.length)%} & {%else%}, {%endif-%}{%-else%} low{%endif-%}
+          {%-endfor-%}
+        {%-endif-%}
+      {%-endif-%}
+    {%-else-%}
+      Everything is charged
+    {%-endfor-%}
+  icon_template: >
+    {%-for state in states.sensor
+      if(state.attributes.device_class=="battery" and state.state | int <= 25)-%}
+        {%-if loop.last-%}
+          {%-if loop.index > 0-%}
+            mdi:battery-10
+          {%-endif-%}
+        {%-endif-%}
+      {%-else-%}
+        mdi:battery
+    {%-endfor-%}

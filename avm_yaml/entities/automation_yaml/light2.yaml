@@ -1,0 +1,24 @@
+# AVM: YEO means Yaml Editable Only;  
+#       theese files are added as 'list' to configuration 
+#       therefore we must use -2 spaces for indentation,
+#       and not start with a '-' on the ID
+#
+#       use one file for each automation
+#
+#       use 'yeo_' as prefix on alias,, that way you will know this
+#       is an YEO-automation when you see it in Configuration/Automations
+
+  
+  
+id: '16438007993605555544'
+alias: yeo_UtelysPå_flytta_2g
+description: ''
+trigger:
+- platform: sun
+  event: sunset
+condition: []
+action:
+- service: switch.turn_on
+  target:
+    device_id: 1c3b1ff4bc36542e1bde6f6ac21a589d
+mode: single

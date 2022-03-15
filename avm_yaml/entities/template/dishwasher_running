@@ -1,0 +1,12 @@
+#eksempel frå mrRR;
+#sensor:
+#  - name: "washing_machine_running"
+#    unique_id : "washing_machine_running"
+#    state: "{{ states('sensor.power_washing_machine') | float(0) > 7 }}"
+
+
+
+sensor:
+  - name: "dishwasher_running"
+    unique_id : "dishwasher_running"
+    state: "{{ states('sensor.dishwasher_power') | float(0) > 1 }}"

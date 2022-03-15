@@ -1,0 +1,24 @@
+#   AVM; splitter energy-meters i filer for kvar av entitetar som har dei
+#        men samlar fleire utility-meters i samme fil
+#
+#        cycle string-> How often to reset the counter. 
+#                       Valid values are: 
+#                           quarter-hourly, hourly, daily, weekly, monthly, bimonthly, quarterly and yearly
+#
+kitchen_heater_south_energy_hourly:
+  source: sensor.kitchen_heater_south_energy
+  name: kitchen_heater_south_energy_hourly 
+#  unique_id: kitchen_heater_south_energy_hourly
+  cycle: hourly
+
+kitchen_heater_south_energy_daily: 
+  source: sensor.kitchen_heater_south_energy
+  name: kitchen_heater_south_energy_daily 
+#  unique_id: kitchen_heater_south_energy_daily
+  cycle: daily 
+
+kitchen_heater_south_energy_monthly: 
+  source: sensor.kitchen_heater_south_energy
+  name: kitchen_heater_south_energy_monthly
+#  unique_id: kitchen_heater_south_energy_monthly
+  cycle: monthly
