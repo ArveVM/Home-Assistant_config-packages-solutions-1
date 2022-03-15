@@ -1,0 +1,20 @@
+###############################################################################
+#   @author       :   ArveVM 
+#   @date         :   15.march.2022
+#   @integration  :   Utility Meter
+#   @description  :   enable powerful functionality!
+#   @basic concept: 
+#      enable Utility Meter functionality, 
+#      create a folder for .yaml-files with utility-meters
+#
+#   Guess I will prefer to create sensor within  each solution - but you never know
+#
+#   Tip and shitload of guiding from mrRR, part of the v2 of my splitting documentation
+# 
+#   further info: https://www.home-assistant.io/integrations/utility_meter/
+#
+###############################################################################
+
+
+
+utility_meter: !include_dir_merge_named ../../entities/utilitymeter

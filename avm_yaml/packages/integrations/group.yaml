@@ -1,0 +1,22 @@
+###############################################################################
+#   @author       :   ArveVM 
+#   @date         :   15.march.2022
+#   @integration  :   group
+#   @description  :   enable powerful functionality!
+#   @basic concept: 
+#      enable group functionality, 
+#      create a folder for .yaml-files with
+#
+#   Guess I will prefer to create groups within  each solution - but you never know
+#
+#   Optional: groups in /config/zigbee2mqtt/groups.yaml
+#       - but they have to be created/maintained from  Z2M !!!!! 
+#
+#   Tip and shitload of guiding from mrRR, part of the v2 of my splitting documentation
+# 
+#   further info: https://www.home-assistant.io/integrations/group/
+#
+###############################################################################
+
+
+group: !include ../../entities/groups.yaml
