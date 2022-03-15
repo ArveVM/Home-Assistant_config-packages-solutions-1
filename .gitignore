@@ -16,7 +16,7 @@ transporter.py
 /tts/
 /www/
 /zigbee2mqtt/
-/avm_yaml/packages/integrations
+/avm_yaml/packages/pending_int
 /avm_yaml/entities
 /blueprints/
 
@@ -28,7 +28,7 @@ eva_han.yaml
 garage_doors
 kitchen_heater_south.yaml
 vvb.yaml
-washer.yaml
+
 washingmachine.yaml
 automations.yaml
 scenes.yaml

@@ -1,0 +1,131 @@
+###############################################################################
+#   @author       :   ArveVM 
+#   @date         :   09.march.2022
+#   @solution     :   Washer
+#   @description  :   Solution to make dumb appliances seem smart.  
+#   @basic concept: 
+#      Dumb hwasher is plugged into a Apex smartplug which 
+#      Z2M/mosquiton integration provides data from to HA
+#         sensors used:      
+#            sensor.apexplug_power
+#      (it also has a switch wihch one can trun off in case of
+#      extreme powersaving-solutions - some time in the future)
+###############################################################################
+
+# first adding some pre-req:
+sensor:
+    # first convert Power to Energy
+  - platform: integration
+    name: washer_energy
+    source: sensor.apexplug_power
+    method: left
+    unit_prefix: k
+    round: 2
+
+
+# Inspiration from https://www.homeautomationguy.io/home-assistant-automations/washing-machine-notifications/
+input_select:
+  washer_power_status:
+    name: washer_power_status
+    options:
+      - "Off"
+      - "Running"
+      - "Finished"
+    initial: "Off"
+
+
+# then my own idea of traching number of cycles the device is running
+counter:
+  washer_cycle_counter:
+    name: washer_cycle_counter
+    initial: 1
+    step: 1
+
+
+automation:
+  - id: 'washer_power_status_running'
+    alias: 'washer_power Set dishwasher Status to Running'
+    description: ''
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.apexplug_power
+#      entity_id: input_number.dishwasher_power_testhelper
+      above: '15'
+      for: "00:01:00"
+    condition:
+      alias: "kan verte starta frå av eller ferdig"
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: input_select.washer_power_status
+          state: "Off"
+        - condition: state
+          entity_id: input_select.washer_power_status
+          state: "Finished"
+    action:
+      - service: notify.mobile_app_arvemobil
+        data:
+          message: Vaskmaskina går
+      - service: input_select.select_option
+        data:
+          option: Running
+        target:
+          entity_id: input_select.washer_power_status
+    mode: single
+  - id: 'washer_status_finished'
+    alias: 'washer_power: Set washer Status to Finished'
+    description: ''
+    trigger:
+    - platform: numeric_state
+#      entity_id: sensor.apexplug_power
+      entity_id: input_number.washer_power_testhelper
+      below: 10
+      for: "00:01:00"
+    condition:
+      - condition: state
+        entity_id: input_select.washer_power_status
+        state: 'Running'
+    action:
+      - service: notify.mobile_app_arvemobil
+        data:
+          message: 💚 Vaskmaskina er ferdig
+      - service: input_select.select_option
+        data:
+          option: "Finished"
+        target:
+          entity_id: input_select.washer_power_status
+      - service: counter.increment
+        target:
+          entity_id: counter.washer_cycle_counter
+    mode: single
+
+
+# log usage in periods
+#   cycle string-> How often to reset the counter. 
+#       Valid values: quarter-hourly, hourly, daily, weekly, monthly, bimonthly, quarterly and yearly
+utility_meter:
+  washer_cycle_daily: 
+    source: counter.washer_cycle_counter
+    name: washer_cycle_daily
+    cycle: daily
+  washer_cycle_weekly: 
+    source: counter.washer_cycle_counter
+    name: washer_cycle_weekly
+    cycle: weekly
+  washer_cycle_monthly: 
+    source: counter.washer_cycle_counter
+    name: washer_cycle_monthly
+    cycle: monthly
+
+  washer_energy_daily: 
+    source: sensor.washer_energy
+    name: washer_energy_daily
+    cycle: daily
+  washer_energy_weekly: 
+    source: sensor.washer_energy
+    name: washer_energy_weekly
+    cycle: weekly
+  washer_energy_monthly: 
+    source: sensor.washer_energy
+    name: washer_energy_monthly
+    cycle: monthly
