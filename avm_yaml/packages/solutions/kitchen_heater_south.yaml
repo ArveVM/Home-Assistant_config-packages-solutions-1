@@ -19,10 +19,10 @@
 
 # input/tip from mrRR:  is it on?
 template:
-  sensor:
-    - name: "kitchen_heater_south_running"
-      unique_id: "kitchen_heater_south_running"
-      state: "{{ states('sensor.kitchen_heater_south_power') | float(0) > 7 }}"
+  - sensor:
+      - name: "kitchen_heater_south_running"
+        unique_id: "kitchen_heater_south_running"
+        state: "{{ states('sensor.kitchen_heater_south_power') | float(0) > 7 }}"
 
 
 # log usage in periods

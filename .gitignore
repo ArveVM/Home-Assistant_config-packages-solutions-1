@@ -17,18 +17,10 @@ transporter.py
 /www/
 /zigbee2mqtt/
 /avm_yaml/packages/pending_int
-#/avm_yaml/entities
+/avm_yaml/packages/solutions_int
 /blueprints/
 
 # ignore any of these files no matter where they are using double *
-git_share
-dishwasher.yaml
-dryer.yaml
-eva_han.yaml
-garage_doors
-vvb.yaml
-
-washingmachine.yaml
 automations.yaml
 scenes.yaml
 scripts.yaml

@@ -13,6 +13,7 @@
 #      So this file is not adding any functionality - it is only describing
 #      functionality HA enables magically ;)
 #      Anyway - it's not broke, don't poke!
+#      No worries, just my OCD that needed to make some sence of how things work
 #
 #      PS; list of active integrations are present in GUI
 #          configurations/settings/info/integrations    (scroll down)
