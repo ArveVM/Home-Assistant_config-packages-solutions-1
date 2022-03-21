@@ -1,0 +1,73 @@
+###############################################################################
+#   @author       :   ArveVM 
+#   @date         :   21.march.2022
+#   @Add-on       :   zigbee2mqtt
+#   @description  :   connect HA to zigbee-network  
+#   @basic concept: 
+#      Z2M-addon configures usb-stick/radio to connect to zigbee-network 
+#          add zigbee-devices
+#          configure zigbee-devices 
+#      then in my setup, Z2M is pushing new devices and states to HA via 
+#      Add-on Mosquitto (MQTT-broker)
+#
+#   Use one of the multiple youtube-videos to guide you through the addon-install/config
+#     but remember to save username and passwords only in Secrets.yaml !  
+#     (see example in my config below)
+# 
+#   NB; the configuration below should be added in the Addon's configuration 
+#       NOT the configuration.yaml-file of your HA
+###############################################################################
+
+
+
+
+data_path: /config/zigbee2mqtt
+external_converters: []
+devices: devices.yaml
+groups: groups.yaml
+homeassistant: true
+permit_join: false
+mqtt:
+  base_topic: zigbee2mqtt
+  user: '!secret mqtt_user'
+  password: '!secret mqtt_password'
+serial:
+  port: /dev/ttyACM0           # -> check which port your stick is on in UI: Configuration/'Addon,Backup,Supervisor'/System/Host/'three-dot-menu'/Hardware/   -> scroll down the list to identify your stick
+  adapter: deconz              # -> just because i use a ConbeeII-stick, according to https://www.zigbee2mqtt.io/guide/adapters/#recommended
+advanced:
+  log_level: warn
+  pan_id: 6754
+  channel: 11
+  network_key:
+    - 1
+    - 3
+    - 5
+    - 7
+    - 9
+    - 11
+    - 13
+    - 15
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 13
+  availability_blocklist: []
+  availability_passlist: []
+device_options: {}
+blocklist: []
+passlist: []
+queue: {}
+frontend:
+  port: 8099
+experimental: {}
+availability: false
+socat:
+  enabled: false
+  master: pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777
+  slave: tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5
+  options: '-d -d'
+  log: false
