@@ -65,7 +65,7 @@ automation:
     action:
       - service: notify.mobile_app_arvemobil
         data:
-          message: Vaskmaskina går
+          message: Vaskmaskina startet   -=>  {{ now().strftime('%H:%M') }}
       - service: input_select.select_option
         data:
           option: Running
@@ -88,7 +88,7 @@ automation:
     action:
       - service: notify.mobile_app_arvemobil
         data:
-          message: 💚 Vaskmaskina er ferdig
+          message: 💚 Vaskmaskina er ferdig  -=>  {{ now().strftime('%H:%M') }}
       - service: input_select.select_option
         data:
           option: "Finished"

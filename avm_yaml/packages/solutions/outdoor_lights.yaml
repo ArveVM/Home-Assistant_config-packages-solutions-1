@@ -1,6 +1,6 @@
 ###############################################################################
 #   @author       :   ArveVM 
-#   @date         :   18.march.2022
+#   @date         :   21.march.2022
 #   @solution     :   Outdoor light on/off
 #   @description  :   Solution to make dumb appliances seem smart.  
 #   @basic concept: 
@@ -18,11 +18,10 @@
 
 # AVM; anyone,, why is it not possible to customize a switch to a light and use light_off ??
 # or if it is possible - how??
-# AVM; first define the shelly-switch as a light-switch:   (FAILED,,, WHY ?????)
-#homeassistant:
-#  customize:
-#    switch.utelys:
-#      device_class: light
+
+# and anyone with example of how to ensure power-on-behaviour  (currently set in z2m, reconfigure i Solution, or just document here?)
+# select.outdoor_light_power_on_behavior = on
+
 
 
 #: AVM; define my 'time-zones' for outdoor ligths
