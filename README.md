@@ -1,6 +1,6 @@
 # Home-Assistant_config
 
-This repo contains (part of) the working Home Assistant configuration for my home. 
+This repo contains (part of) the working Home Assistant configuration for our home. 
 Below you find an overview of the devices currently being used, blog/video posts, and other HA enthusists that provided inspiration and configs to help build this config. All of the code is free to use.
 
 ### Disclaimer:
@@ -20,11 +20,11 @@ Below you find an overview of the devices currently being used, blog/video posts
    - Solutions are the usage of Functionality to create automagicallity  :)
    - Functionality is the enabler of Solutions 
 2. All Home Assistant Functionality comes from either an Integration or an Add-on
-   - this includes the HA itself, which I see as 'documented and configurable' as an Integration
+   - this includes the HA itself, which I see as 'documented and configurable' as an Integration (maybe a simplification, but it works for this principle)
 3. Functionality configuration options:
    - GUI configuration   (preferred by me)
    - .yaml configuration: 
-     - yaml-file must be named according to the actual integration/addon
+     - yaml-file must be named according to the actual integration/addon to which the functionality is actually loaded
      - as configuration goes,, it can also be like adding sensors or templates to the integration to enable what could/should have been logically incuded
      - all 'manual .yaml-configuration' should (if possible) be separated from installed integrations/addons 
      - by creating /config/avm_yaml/packages/integrations/ I've made a placeholder for this principle
@@ -32,7 +32,7 @@ Below you find an overview of the devices currently being used, blog/video posts
 4. How do HA enable Functionality?:
    - Addons installed/configured   -> addon-startup (manually or automatically at HA-startup)
    - Integrations installed/configured  -> enabled at HA startup if not disabled. Some can also be re-loaded from integration GUI?
-   - configuration.yaml   -> is loaded at startup and is in my configuration adding further functionality in Integrations-folder
+   - configuration.yaml   -> is loaded at startup (using 'packages-functionality' and is in my configuration adding further functionality in Integrations-folder
      - integrations-folder added functionality:
        - default_config.yaml -> is adding loads of 'base functionality'
        - etc etc - see files in folder  
@@ -42,7 +42,7 @@ Below you find an overview of the devices currently being used, blog/video posts
      - something .yaml added to the Integrations-folder!
 5. All solutions should be kept separate from Functionality
    - One .yaml-file pr solution -> all files in the /config/avm_yaml/packages/solutions/ - folder  (or structure of sub-folders if required)
-   - You must decide/create your own structure/namin for your Solutions, based upon your requirements
+   - You must decide/create your own structure/namin for your Solutions, based upon your requirements and preferences
      - be prepared to use/change naming-standards according to solution-structure, to be able to find sensors in need for reconfig 
    - Since configuration.yaml is including functionality in solutions-folder,, all files will be loaded at startup
    - all .yaml-files in solutions must have intendation and spaces as if code was written directly in configuration.yaml,, se examples
@@ -69,13 +69,14 @@ To prove this point; I even stole this text from thejeffreystone :)
 
 
 ### Inspirators-extraordinare;
+- the HA-dev-team:  :  https://www.home-assistant.io/docs/configuration/
 - Jeff @ SlackerLabs:  https://slacker-labs.com/  /  https://github.com/thejeffreystone/home-assistant-configuration
 - Franck Nijhof     :  https://github.com/frenck/home-assistant-config
 - Rob @ TheHookup:  :  https://www.youtube.com/c/TheHookUp / https://www.facebook.com/groups/473812443269387
 - JuanMtech         :  https://www.youtube.com/channel/UCR7Xa7cU9wfkSY9v3yN2Vtw
 - mr RR             :  HA mentor
 - mr RL             :  Hardware provider and solutions guiding
-- mr ML             :  Home network setup guiding (and huge inspiration - division shift upwards on how much cash to spend on network equipment :) )
+- mr ML and mr ØB   :  Home network setup guiding (and huge inspiration -> division shift upwards on how much cash to spend on network equipment :) )
 
 
 
@@ -96,16 +97,17 @@ Networking:
 - HP switch
 
 Media:
-- Google Chromecast
-- Google Mini
-- Lenovo Smartwatch
+- Google Chromecast (pending integration)
+- Google Mini (pending integration)
+- Lenovo Smartwatch (pending integration)
  
 Switches/Plugs:
 - Shelly1
 - Shelly1pm
 - Shelly+1
 - ShellyS
-- ApexPlug
+- ApexPlug (https://www.zigbee2mqtt.io/devices/HLU2909K.html#datek-hlu2909k)
+- Ikea E1603 (https://www.zigbee2mqtt.io/devices/E1603_E1702_E1708.html)
  
 Lights:
 - Ikea styrbar
@@ -115,20 +117,24 @@ Lights:
 
 Sensors:
 - Aquara temp/humidity sensor
-- Reed-switch (wired)
+- Reed-switch (wired to Shelly1)
 - Netatmo
+- Eva meeter-reader (https://www.zigbee2mqtt.io/devices/HSE2905E.html#datek-hse2905e)
 
 Integrations:
-- Easee EV Charger
-- HACS
 - Supervisor
 - Logitec Harmony Hub
 - Meterologisk institutt
 - Mobile App
-- Mosquitto broker (MQTT)
+- Mosquitto broker (MQTT)   (note that Mosquitto is both an add-on and an integration :))
 - Netatmo
-- Nordpool
 - Shelly
+- HACS:
+  - Nordpool
+  - Easee EV Charger
+  - Local Tuya (not working properly ;( )
+  - Min renovasjon
+
 
 Add-ons:
 - Chrony (NTP for Shellys on NoT)
@@ -146,9 +152,10 @@ Blueprints:
 - Aquara qube: https://raw.githubusercontent.com/golles/Home-Assistant-Blueprints/main/zigbee2mqtt_aqara_magic_cube.yaml
 
 Frontend:
-- Custom button card: https://github.com/custom-cards/button-card
-- Custom apexcharts-card: https://github.com/RomRider/apexcharts-card
-- Custom charger-card: https://github.com/tmjo/charger-card
+- HACS:
+  - Custom button card: https://github.com/custom-cards/button-card
+  - Custom apexcharts-card: https://github.com/RomRider/apexcharts-card
+  - Custom charger-card: https://github.com/tmjo/charger-card
 
 
 ### config history:
