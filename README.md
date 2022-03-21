@@ -77,11 +77,12 @@ To prove this point; I even stole this text from thejeffreystone :)
 - mr RR             :  HA mentor
 - mr RL             :  Hardware provider and solutions guiding
 - mr ML and mr ØB   :  Home network setup guiding (and huge inspiration -> division shift upwards on how much cash to spend on network equipment :) )
+- mr KISS           :  longlived principle of simplicity of code, inspiration from 'back in the days' -> nolug hhelgesen  :)
 
 
 
 ### Current setup;
-HA-hardware
+HA-hardware:
 - HP Compaq dc7900 -> Proxmox7
 - ConbeeII zigbee-stick
 
