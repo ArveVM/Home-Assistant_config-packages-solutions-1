@@ -1,0 +1,17 @@
+# AVM: add separator-line to automations-overview in UI  
+#       theese files are added as 'list' to configuration 
+#       therefore we must use -2 spaces for indentation,
+#       and not start with a '-' on the ID
+#
+#       use one file for each automation
+#
+#       use '_' as prefix on alias,, that way you will know this
+#       is an YAML-EDITABLE AUTOMATION when you see it in Configuration/Automations
+
+id: '164380079936055555'
+alias: "_a_________   YAML-EDITABLE AUTOMATIONS:"
+description: ''
+trigger: []
+condition: []
+action: []
+mode: single

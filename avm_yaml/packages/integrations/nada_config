@@ -37,9 +37,7 @@ integration         - Riemann sum integral
                     - used as platform in a sensor 
 
 
-systemmonitor       - sensor platform allows you to monitor disk usage, 
-                    - memory usage, CPU usage, and running processes.
-
+times of the day    - used for outdoor lighs, 'activated upon usage', no config
 
 uptime              - The uptime sensor stores the timestamp (date and time) 
                       when Home Assistant was last started.

@@ -1,11 +1,12 @@
 
+# AVM; Gradually moved customizations into each Solution under packages
 
-switch.vvb1pm:
-  device_class: outlet
+#switch.vvb1pm:
+#  device_class: outlet
   
-switch.vvb_powersave:
-  device_class: outlet
+#switch.vvb_powersave:
+#  device_class: outlet
   
-nordpool_kwh_molde_nok_2_095_025:
+#nordpool_kwh_molde_nok_2_095_025:
 #  currency: Øre  
-  friendly_name: Nordpool
+#  friendly_name: Nordpool

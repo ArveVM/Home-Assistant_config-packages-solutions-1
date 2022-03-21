@@ -44,7 +44,7 @@ counter:
 
 automation:
   - id: 'washer_power_status_running'
-    alias: 'washer_power Set dishwasher Status to Running'
+    alias: "_Washer; set Status to Running"
     description: ''
     trigger:
     - platform: numeric_state
@@ -73,7 +73,7 @@ automation:
           entity_id: input_select.washer_power_status
     mode: single
   - id: 'washer_status_finished'
-    alias: 'washer_power: Set washer Status to Finished'
+    alias: "_Washer; set Status to Finished"
     description: ''
     trigger:
     - platform: numeric_state

@@ -1,0 +1,58 @@
+###############################################################################
+#   @author       :   ArveVM 
+#   @date         :   09.march.2022
+#   @solution     :   Eva_HAN
+#   @description  :   Measure power consumed by our house.  
+#   @basic concept: 
+#      EVA-han reader is plugged into our power-meters HAN-interface (Norwegian only solution?)
+#      Z2M/mosquitto integration provides data from to HA
+#         sensors used:      
+#            sensor.evahan_power
+#
+#   AVM: stick in power-meter, integrated through Zigbee2mqtt and provides some 
+#   sensors through that integration, and some more are added here;
+#
+###############################################################################
+
+
+sensor:
+  # first convert from W to kWh
+  - platform: integration
+    name: evaHAN_energy_inst
+    source: sensor.evahan_power
+    method: left
+    unit_prefix: k
+    round: 2
+
+  # eksempel fra Erlend Sellie på HA-norge-FB - brukt i en av lovelace-cards for nordpool vs current usage-grafs,,,
+  - platform: filter
+    name: "evaHAN filtered power"
+    entity_id: sensor.evahan_power
+    filters:
+      - filter: throttle
+        window_size: 4
+      - filter: outlier
+        window_size: 4
+        radius: 2.0
+      - filter: lowpass
+        time_constant: 10
+
+
+# log usage in periods
+#   cycle string-> How often to reset the counter. 
+#       Valid values: quarter-hourly, hourly, daily, weekly, monthly, bimonthly, quarterly and yearly
+utility_meter:
+  evahan_energy_hourly: 
+    source: sensor.evahan_energy_inst
+    name: evahan_energy_hourly
+    cycle: hourly
+
+  evahan_energy_daily: 
+    source: sensor.evahan_energy_inst
+    name: evahan_energy_daily
+    cycle: daily
+  
+  evahan_energy_monthly: 
+    source: sensor.evahan_energy_inst
+    name: evahan_energy_monthly
+    cycle: monthly
