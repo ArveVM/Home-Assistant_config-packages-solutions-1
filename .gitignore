@@ -1,70 +1,86 @@
-#AVM; initial copy directly from https://github.com/thejeffreystone/home-assistant-configuration/blob/master/.gitignore
+# ArveVM; initial copy directly from https://github.com/thejeffreystone/home-assistant-configuration/blob/master/.gitignore
+# ArveVM; then copy "deny all"-principle from mrRR
+
+# First exclude everyting:
+/*
+
+# Then include specifics:
+!.gitignore
+!/entities
+!/avm_yaml/packages/addons
+!/packages/integrations
+!/packages/solutions
+#!/other/
+#!*.yaml
+#!*.json
+
+# then make sure to ignore any of these files no matter where they are using double *
+**automations.yaml
+**google_calendars.yaml
+**secrets.yaml
+**scripts.yaml
+**scenes.yaml
 
 # ignore my git update script
-update_git.py
-transporter.py
+#update_git.py
+#transporter.py
 
 # ignore hidden folders
-/.storage
-/.cloud
+#/.storage
+#/.cloud
 #/config/.google.token
 
 # ignore some directories.
-/custom_components
-/deps/
-/node-red
-/tts/
-/www/
-/zigbee2mqtt/
-/avm_yaml/packages/pending_int
-/avm_yaml/packages/solutions_int
-/blueprints/
+#/custom_components
+#/deps/
+#/node-red
+#/tts/
+#/www/
+#/zigbee2mqtt/
+#/avm_yaml/packages/solutions_int
+#/blueprints/
 
-# ignore any of these files no matter where they are using double *
-automations.yaml
-scenes.yaml
-scripts.yaml
 
-harmony_12427489.conf
-**.DS_Store
-**._*
-**.HA_VERSION
-**.pyc
-**.conf
-**.uuid
-**.txt
-**.log
-**.db
-**.sqlite
-**.xml
-**secrets*
-**known_devices.yaml
-**google_calendars.yaml
-**ip_bans.yaml
-**.spotify-token-cache
-**zones.yaml
-**test.yaml
-**testing.yaml
-**.homekit*
-**.vscode
-**.pid
-**.xml
-**.csr
-**.crt
-**.key
-**core.*
-**OZW_Log.txt
-**home-assistant.log
-home-assistant.log.1
-home-assistant.log.fault
-**home-assistant_v2.db
-**.db-journal
-**.db-shm
-**.db-wal
-**.sqlite
-**__pycache__
-**phue.conf 
-**ios.conf
-**pyozw.sqlite
-**ipchange.yaml
-**production_auth.json
+#harmony_12427489.conf
+#**.DS_Store
+#**._*
+#**.HA_VERSION
+#**.pyc
+#**.conf
+#**.uuid
+#**.txt
+#**.log
+#**.db
+#**.sqlite
+#**.xml
+#**secrets*
+#**known_devices.yaml
+#**google_calendars.yaml
+#**ip_bans.yaml
+#**.spotify-token-cache
+#**zones.yaml
+#**test.yaml
+#**testing.yaml
+#**.homekit*
+#**.vscode
+#**.pid
+#**.xml
+#**.csr
+#**.crt
+#**.key
+#**core.*
+#**OZW_Log.txt
+#**home-assistant.log
+#home-assistant.log.1
+#home-assistant.log.fault
+#**home-assistant_v2.db
+#**.db-journal
+#**.db-shm
+#**.db-wal
+#**.sqlite
+#**__pycache__
+#**phue.conf 
+#**ios.conf
+#**pyozw.sqlite
+#**ipchange.yaml
+#**production_auth.json
